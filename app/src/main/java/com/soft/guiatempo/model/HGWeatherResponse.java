@@ -8,17 +8,87 @@ public class HGWeatherResponse {
     private LocalDate date;
     private String description;
     private String cityName;
-    private HGWeatherForecast[] forecast;
+    private Forecast[] forecast;
 
-    public class HGWeatherForecast {
+    public class Forecast {
 
         private LocalDate date;
         private int max;
         private int min;
         private String description;
 
+        public LocalDate getDate() {
+            return date;
+        }
+
+        public void setDate(LocalDate date) {
+            this.date = date;
+        }
+
+        public int getMax() {
+            return max;
+        }
+
+        public void setMax(int max) {
+            this.max = max;
+        }
+
+        public int getMin() {
+            return min;
+        }
+
+        public void setMin(int min) {
+            this.min = min;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
     }
 
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public Forecast[] getForecast() {
+        return forecast;
+    }
+
+    public void setForecast(Forecast[] forecast) {
+        this.forecast = forecast;
+    }
 }
 
 /**

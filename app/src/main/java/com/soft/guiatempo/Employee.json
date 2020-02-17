@@ -1,0 +1,10 @@
+{"temp":20,
+  "date":"04/02/2020",
+  "description":"Tempo nublado",
+  "city_name":"Sao Paulo",
+  "forecast":[
+  {"date":"04/02","max":25,"min":19,"description":"Tempestades isoladas"},
+  {"date":"05/02","max":26,"min":19,"description":"Tempestades"},
+  {"date":"06/02","max":26,"min":19,"description":"Tempestades"},
+  {"date":"07/02","max":26,"min":20,"description":"Tempestades"},
+  {"date":"08/02","max":27,"min":18,"description":"Tempestades"}]}

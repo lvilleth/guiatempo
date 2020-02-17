@@ -1,6 +1,9 @@
 package com.soft.guiatempo;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,22 +14,48 @@ import com.soft.guiatempo.model.entity.CityEntity;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CityListRecyclerView extends RecyclerView.Adapter<CityListRecyclerView.CityViewHolder> {
 
     private List<CityEntity> cachedCities; // Cached copy of words
+    private Application application;
+    private  CityViewModel cityViewModel;
 
     class CityViewHolder extends RecyclerView.ViewHolder {
+
         private final TextView wordItemView;
+
 
         private CityViewHolder(View itemView) {
             super(itemView);
+
             wordItemView = itemView.findViewById(R.id.textView);
+
+            wordItemView.setOnClickListener( x -> {
+                Intent intent = new Intent(itemView.getContext(), cityClimate.class);
+                intent.putExtra("city", wordItemView.getText());
+                itemView.getContext().startActivity( intent );
+            });
+
+
+            wordItemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    cityViewModel.deleteByName(wordItemView.getText().toString());
+                    return true;
+                }
+            });
         }
     }
 
-    public CityListRecyclerView(Context context){}
+    public CityListRecyclerView(Activity context, CityViewModel cityViewModel){
+        this.application = context.getApplication();
+        this.cityViewModel = cityViewModel;
+
+    }
 
     @NonNull
     @Override

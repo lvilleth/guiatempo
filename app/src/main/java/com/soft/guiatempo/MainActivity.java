@@ -1,55 +1,29 @@
 package com.soft.guiatempo;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.soft.guiatempo.model.entity.CityEntity;
-
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CityViewModel cityViewModel;
+    private Button btn_consultar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_consultar = findViewById(R.id.btn_consultar);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final CityListRecyclerView adapter = new CityListRecyclerView(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        cityViewModel = new ViewModelProvider(this).get(CityViewModel.class);
-        cityViewModel.findAllCities().observe(this, new Observer<List<CityEntity>>() {
+        btn_consultar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable final List<CityEntity> cities) {
-                // Update the cached copy of the words in the adapter.
-                adapter.setCities(cities);
-            }
-        });
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("CLICK !!!!!");
-
-                cityViewModel.save(new CityEntity("Nova_" + System.currentTimeMillis()));
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ListCities.class));
             }
         });
     }
-
 
 }

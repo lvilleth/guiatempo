@@ -15,7 +15,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = CityEntity.class, version = 1, exportSchema = false)
+@Database(entities = CityEntity.class, version = 2, exportSchema = false)
 public abstract class CityRoomDatabase extends RoomDatabase {
 
     // getters for the DAO this database relates to
@@ -59,6 +59,7 @@ public abstract class CityRoomDatabase extends RoomDatabase {
 
             // If you want to keep data through app restarts,
             // comment out the following block
+            /*
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
@@ -70,12 +71,14 @@ public abstract class CityRoomDatabase extends RoomDatabase {
                     }
                 }
 
+
                 CityEntity city;
                 city = new CityEntity("Joao Pessoa");
                 dao.save(city);
                 city = new CityEntity("Sao Paulo");
                 dao.save(city);
             });
+            */
         }
     };
 

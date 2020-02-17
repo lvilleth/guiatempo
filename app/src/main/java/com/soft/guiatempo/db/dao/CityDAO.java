@@ -20,6 +20,9 @@ public interface CityDAO {
     @Delete
     void deleteCity(CityEntity... city);
 
+    @Query("DELETE FROM city where name like :cityName")
+    void deleteCityByName(String cityName);
+
     @Query("SELECT * FROM city order by name asc")
     List<CityEntity> findAllSync();
 

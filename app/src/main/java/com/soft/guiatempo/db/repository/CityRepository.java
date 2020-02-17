@@ -41,13 +41,19 @@ public class CityRepository {
         return cityDAO.findCityById(id);
     }
 
-    public LiveData<List<CityEntity>> findCity(String name){
+    public LiveData<List<CityEntity>> findCityByName(String name){
         return cityDAO.findCityByNameLike(name);
     }
 
     public void delete(final CityEntity... city){
         CityRoomDatabase.databaseWriteExecutor.execute(() -> {
             cityDAO.deleteCity(city);
+        });
+    }
+
+    public void deleteByName(final String cityName){
+        CityRoomDatabase.databaseWriteExecutor.execute(() -> {
+            cityDAO.deleteCityByName(cityName);
         });
     }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GuiaTempo</string>
+    <string name="btn_voltar">Voltar</string>
+    <string name="btn_consultar">Consultar Clima</string>
 </resources>

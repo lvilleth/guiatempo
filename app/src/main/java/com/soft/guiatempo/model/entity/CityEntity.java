@@ -13,6 +13,8 @@ public class CityEntity {
 
     private String name;
 
+    private String data;
+
     @NonNull
     public Long getId() {
         return id;
@@ -32,5 +34,13 @@ public class CityEntity {
 
     public CityEntity(String name){
         setName(name);
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }

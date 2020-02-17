@@ -26,4 +26,13 @@ public class CityViewModel extends AndroidViewModel {
 
     public void save(CityEntity... city) { cityRepository.save(city); }
 
+    public void delete(CityEntity... city) { cityRepository.delete(city); };
+
+    public LiveData<List<CityEntity>> findCityByName(String name) {
+        return cityRepository.findCityByName(name);
+
+    }
+
+    public void deleteByName(String cityName) { cityRepository.deleteByName(cityName); };
+
 }
