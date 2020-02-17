@@ -56,29 +56,6 @@ public abstract class CityRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-
-            // If you want to keep data through app restarts,
-            // comment out the following block
-            /*
-            databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more words, just add them.
-                CityDAO dao = INSTANCE.cityDAO();
-                List<CityEntity> cities = dao.findAllSync();
-                if(cities != null) {
-                    for (CityEntity city : cities) {
-                        dao.deleteCity(city);
-                    }
-                }
-
-
-                CityEntity city;
-                city = new CityEntity("Joao Pessoa");
-                dao.save(city);
-                city = new CityEntity("Sao Paulo");
-                dao.save(city);
-            });
-            */
         }
     };
 

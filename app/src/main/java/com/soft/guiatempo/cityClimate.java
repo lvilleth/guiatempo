@@ -156,7 +156,6 @@ public class cityClimate extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("Falhou ao capturar elemento!!");
-                        error.printStackTrace();
 
                         cityViewModel.findCityByName(cityName).observe(cityClimate.this, listCities -> {
                             CityEntity cityEntity;
@@ -275,6 +274,7 @@ public class cityClimate extends AppCompatActivity {
             }
         }catch(Exception e) {
             System.out.println("Error - " + e);
+            startActivity(new Intent( cityClimate.this, NoData.class));
         }
     }
 

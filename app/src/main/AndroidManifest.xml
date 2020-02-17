@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegisterCity"></activity>
+        <activity android:name=".NoData"></activity>
+        <activity android:name=".RegisterCity" />
         <activity android:name=".ListCities" />
         <activity android:name=".cityClimate" />
         <activity android:name=".MainActivity">
